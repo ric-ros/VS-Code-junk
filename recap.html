@@ -1,0 +1,1065 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete AI Course Study Guide - All Units</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.4;
+            margin: 0;
+            padding: 15px;
+            background: white;
+            color: #333;
+            font-size: 13px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2em;
+            margin: 15px 0 10px 0;
+            page-break-after: avoid;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 1em;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            background: linear-gradient(90deg, #3498db, #2980b9);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            margin: 20px 0 10px 0;
+            font-size: 1.1em;
+            page-break-after: avoid;
+        }
+
+        h3 {
+            color: #2c3e50;
+            border-left: 3px solid #3498db;
+            padding-left: 10px;
+            margin: 15px 0 8px 0;
+            font-size: 1em;
+            page-break-after: avoid;
+        }
+
+        h4 {
+            color: #34495e;
+            margin: 10px 0 5px 0;
+            font-size: 0.95em;
+        }
+
+        .unit-divider {
+            border-top: 3px solid #e74c3c;
+            margin: 30px 0;
+            page-break-before: always;
+        }
+
+        .key-points {
+            background: #ecf0f1;
+            border-left: 4px solid #3498db;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 3px;
+        }
+
+        .exam-focus {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            padding: 8px;
+            border-radius: 3px;
+            margin: 8px 0;
+        }
+
+        .exam-focus h4 {
+            color: #856404;
+            margin-top: 0;
+            font-size: 0.9em;
+        }
+
+        .critical-exam {
+            background: #f8d7da;
+            border: 1px solid #dc3545;
+            padding: 8px;
+            border-radius: 3px;
+            margin: 8px 0;
+        }
+
+        .critical-exam h4 {
+            color: #721c24;
+            margin-top: 0;
+            font-size: 0.9em;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+            font-size: 12px;
+        }
+
+        table th {
+            background: #2c3e50;
+            color: white;
+            padding: 8px;
+            text-align: left;
+            font-weight: bold;
+            font-size: 11px;
+        }
+
+        table td {
+            padding: 6px 8px;
+            border-bottom: 1px solid #ddd;
+            vertical-align: top;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .step-box {
+            background: #e8f8f5;
+            border: 1px solid #1abc9c;
+            border-radius: 3px;
+            padding: 8px;
+            margin: 8px 0;
+        }
+
+        .analogy {
+            background: #fdf2e9;
+            border-left: 3px solid #f39c12;
+            padding: 8px;
+            margin: 8px 0;
+            border-radius: 3px;
+            font-style: italic;
+        }
+
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .vs-left,
+        .vs-right {
+            padding: 8px;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+
+        .vs-left {
+            background: #ffebee;
+            border: 1px solid #e91e63;
+        }
+
+        .vs-right {
+            background: #e8f5e8;
+            border: 1px solid #4caf50;
+        }
+
+        .highlight {
+            background: yellow;
+            padding: 1px 3px;
+            border-radius: 2px;
+            font-weight: bold;
+        }
+
+        .timeline {
+            background: #16a085;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 3px;
+            margin: 5px 0;
+            font-weight: bold;
+            font-size: 11px;
+        }
+
+        .learning-types-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 8px;
+            margin: 10px 0;
+        }
+
+        .learning-type {
+            background: #f8f9fa;
+            border: 1px solid #6c757d;
+            padding: 8px;
+            border-radius: 3px;
+            text-align: center;
+            font-size: 11px;
+        }
+
+        .learning-type.supervised {
+            border-color: #28a745;
+            background: #d4edda;
+        }
+
+        .learning-type.unsupervised {
+            border-color: #ffc107;
+            background: #fff3cd;
+        }
+
+        .learning-type.reinforcement {
+            border-color: #dc3545;
+            background: #f8d7da;
+        }
+
+        .challenges-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin: 10px 0;
+        }
+
+        .challenge-item {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            padding: 8px;
+            border-radius: 3px;
+            font-size: 11px;
+        }
+
+        .matrix-demo {
+            font-family: 'Courier New', monospace;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 8px;
+            margin: 5px 0;
+            border-radius: 3px;
+            text-align: center;
+            font-size: 11px;
+        }
+
+        ul,
+        ol {
+            padding-left: 15px;
+            margin: 5px 0;
+        }
+
+        li {
+            margin: 3px 0;
+        }
+
+        .emoji {
+            font-size: 1em;
+            margin-right: 5px;
+        }
+
+        p {
+            margin: 5px 0;
+        }
+
+        .compact-list {
+            margin: 5px 0;
+        }
+
+        .compact-list li {
+            margin: 2px 0;
+        }
+
+        @media print {
+            body {
+                font-size: 11px;
+                line-height: 1.3;
+            }
+
+            .container {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+                margin: 10px 0 5px 0;
+            }
+
+            h2 {
+                font-size: 1em;
+                padding: 5px 8px;
+                margin: 15px 0 8px 0;
+            }
+
+            h3 {
+                font-size: 0.9em;
+                margin: 10px 0 5px 0;
+            }
+
+            table {
+                font-size: 10px;
+            }
+
+            .key-points,
+            .exam-focus,
+            .critical-exam,
+            .step-box,
+            .analogy {
+                padding: 5px;
+                margin: 5px 0;
+            }
+
+            .unit-divider {
+                margin: 20px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🧠 COMPLETE AI COURSE STUDY GUIDE</h1>
+        <div class="subtitle">Units 1-4: Comprehensive Exam Preparation</div>
+
+        <!-- UNIT 1 -->
+        <h1>📖 UNIT 1: AI HISTORY &amp; FOUNDATIONS</h1>
+
+        <h2>🎯 KEY LEARNING GOALS</h2>
+        <div class="key-points">
+            <ul class="compact-list">
+                <li><span class="emoji">📚</span><strong>Describe</strong> AI development as scientific discipline</li>
+                <li><span class="emoji">❄️</span><strong>Understand</strong> AI paradigms and winters</li>
+                <li><span class="emoji">🔧</span><strong>Explain</strong> expert systems importance</li>
+                <li><span class="emoji">🚀</span><strong>Discuss</strong> recent AI advances</li>
+            </ul>
+        </div>
+
+        <h2>🏛️ HISTORICAL TIMELINE</h2>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Era</th>
+                    <th>Key Events</th>
+                    <th>Significance</th>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="timeline">350 BCE</div>
+                    </td>
+                    <td>Ancient Greek philosophical concepts</td>
+                    <td>First theoretical foundations</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="timeline">1950s</div>
+                    </td>
+                    <td>AI applied to computer science, Dartmouth Conference</td>
+                    <td>Birth of AI as modern field</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="timeline">1970s-80s</div>
+                    </td>
+                    <td>AI Winters - funding cuts and disillusionment</td>
+                    <td>Reality check on AI capabilities</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="timeline">2010s+</div>
+                    </td>
+                    <td>Deep learning, transformers, current AI boom</td>
+                    <td>AI achieves practical success</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>❄️ AI WINTERS - CRITICAL FOR EXAMS</h2>
+        <div class="critical-exam">
+            <h4>🚨 EXAM ALERT: High-Probability Topics!</h4>
+            <p>Understand causes, problems, and lessons learned from each winter.</p>
+        </div>
+
+        <table>
+            <tbody>
+                <tr>
+                    <th>Aspect</th>
+                    <th>First Winter (1970s)</th>
+                    <th>Second Winter (1980s)</th>
+                </tr>
+                <tr>
+                    <td><strong>Cause</strong></td>
+                    <td>Cold War translation projects failed</td>
+                    <td>Expert systems scalability issues</td>
+                </tr>
+                <tr>
+                    <td><strong>Problem</strong></td>
+                    <td>Rule-based approaches too rigid</td>
+                    <td>Couldn't handle real-world complexity</td>
+                </tr>
+                <tr>
+                    <td><strong>Example</strong></td>
+                    <td>"The vodka is good, but the meat is rotten"</td>
+                    <td>Knowledge acquisition bottleneck</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>🔄 PARADIGM SHIFT</h2>
+        <div class="comparison">
+            <div class="vs-left">
+                <h4>❌ OLD: Rules-Based</h4>
+                <ul class="compact-list">
+                    <li>Hand-coded if-then statements</li>
+                    <li>Millions of rules needed</li>
+                    <li>Brittle and inflexible</li>
+                </ul>
+            </div>
+            <div class="vs-right">
+                <h4>✅ NEW: Learning from Data</h4>
+                <ul class="compact-list">
+                    <li>Algorithms discover patterns</li>
+                    <li>Learn from examples</li>
+                    <li>Flexible and adaptive</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>🚀 BREAKTHROUGH REQUIREMENTS</h2>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Requirement</th>
+                    <th>Problem Before</th>
+                    <th>Solution</th>
+                </tr>
+                <tr>
+                    <td><strong>Approach</strong></td>
+                    <td>Rule-based too rigid</td>
+                    <td>Learning from examples</td>
+                </tr>
+                <tr>
+                    <td><strong>Data</strong></td>
+                    <td>Manually created examples</td>
+                    <td>Internet provided massive datasets</td>
+                </tr>
+                <tr>
+                    <td><strong>Storage</strong></td>
+                    <td>Floppy disks (1.44MB)</td>
+                    <td>Modern storage (32GB+)</td>
+                </tr>
+                <tr>
+                    <td><strong>GPU Power</strong></td>
+                    <td>Sequential processing</td>
+                    <td>Massive parallel processing</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>🔤 TRANSFORMER ARCHITECTURES</h2>
+        <h3>📊 Word Embeddings Process</h3>
+        <div class="step-box">
+            <p><strong>Example:</strong> "bank" starts random [0.1, 0.3, 0.8] → learns geography [0.4, 0.3, 0.5] →
+                learns finance [0.4, 0.6, 0.7] → final [0.5, 0.6, 0.7] captures BOTH meanings!</p>
+        </div>
+
+        <h3>🎯 Attention Mechanism</h3>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Component</th>
+                    <th>Question</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td><strong>Query</strong></td>
+                    <td>"What am I looking for?"</td>
+                    <td>"bank" asks: "What type am I?"</td>
+                </tr>
+                <tr>
+                    <td><strong>Key</strong></td>
+                    <td>"What can I offer?"</td>
+                    <td>"river" offers: "I'm water/geography"</td>
+                </tr>
+                <tr>
+                    <td><strong>Value</strong></td>
+                    <td>"What information do I have?"</td>
+                    <td>Actual contextual information</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>🔀 ANI → AGI → ASI PROGRESSION</h2>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                    <th>Examples</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td><strong>ANI</strong></td>
+                    <td>Specialized, domain-specific</td>
+                    <td>ChatGPT, Chess AI</td>
+                    <td class="highlight">Current State</td>
+                </tr>
+                <tr>
+                    <td><strong>AGI</strong></td>
+                    <td>Human-level, cross-domain</td>
+                    <td>Hypothetical human-equivalent</td>
+                    <td>50% chance by 2060</td>
+                </tr>
+                <tr>
+                    <td><strong>ASI</strong></td>
+                    <td>Beyond human intelligence</td>
+                    <td>Theoretical superintelligent AI</td>
+                    <td>Future possibility</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>🧬 ADVANCED AI APPROACHES</h2>
+        <div class="comparison">
+            <div class="vs-left">
+                <h4>🧠 Neural Symbolic Systems</h4>
+                <p>Combine learning (neural) + rules (symbolic) for explainable + flexible AI</p>
+            </div>
+            <div class="vs-right">
+                <h4>🔄 Continual Learning</h4>
+                <p>Solve catastrophic forgetting through experience replay, weight protection</p>
+            </div>
+        </div>
+
+        <!-- UNIT 2 -->
+        <div class="unit-divider"></div>
+        <h1>💼 UNIT 2: AI APPLICATIONS &amp; TASKS</h1>
+
+        <h2>🎯 KEY LEARNING GOALS</h2>
+        <div class="key-points">
+            <ul class="compact-list">
+                <li><span class="emoji">🤖</span><strong>Explain</strong> ANI vs AGI differences</li>
+                <li><span class="emoji">🏢</span><strong>Name</strong> major AI application areas</li>
+                <li><span class="emoji">💰</span><strong>Understand</strong> AI importance for corporations</li>
+            </ul>
+        </div>
+
+        <h2>🤖 ANI vs AGI - EXAM CRITICAL</h2>
+        <div class="critical-exam">
+            <h4>🚨 CRITICAL: Know definitions, examples, and current status!</h4>
+        </div>
+
+        <table>
+            <tbody>
+                <tr>
+                    <th>Aspect</th>
+                    <th>ANI (Narrow AI)</th>
+                    <th>AGI (General AI)</th>
+                </tr>
+                <tr>
+                    <td><strong>Scope</strong></td>
+                    <td>Specialized, controlled environments</td>
+                    <td>Open-ended, domain-independent</td>
+                </tr>
+                <tr>
+                    <td><strong>Examples</strong></td>
+                    <td>ChatGPT, Siri, Chess AI</td>
+                    <td>None exist yet</td>
+                </tr>
+                <tr>
+                    <td><strong>Status</strong></td>
+                    <td class="highlight">ALL current AI is ANI!</td>
+                    <td>50% chance by 2060</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>🏦 FINANCIAL SERVICES APPLICATIONS</h2>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Application</th>
+                    <th>Technology</th>
+                    <th>Business Value</th>
+                </tr>
+                <tr>
+                    <td><strong>Fraud Detection</strong></td>
+                    <td>Pattern Recognition</td>
+                    <td>Prevents financial losses</td>
+                </tr>
+                <tr>
+                    <td><strong>Signature Verification</strong></td>
+                    <td>Computer Vision</td>
+                    <td>Document security</td>
+                </tr>
+                <tr>
+                    <td><strong>Robo-Advising</strong></td>
+                    <td>Predictive Analytics</td>
+                    <td>Personalized investment advice</td>
+                </tr>
+                <tr>
+                    <td><strong>Portfolio Optimization</strong></td>
+                    <td>Algorithmic Optimization</td>
+                    <td>Better returns, automated management</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>📝 NATURAL LANGUAGE PROCESSING</h2>
+        <h3>🎯 Three Main Subdomains</h3>
+        <div class="learning-types-grid">
+            <div class="learning-type supervised">
+                <h4>🎤 Speech Recognition</h4>
+                <p>Voice → Text (Alexa)</p>
+            </div>
+            <div class="learning-type unsupervised">
+                <h4>🧠 Language Understanding</h4>
+                <p>Extract meaning (ChatGPT)</p>
+            </div>
+            <div class="learning-type reinforcement">
+                <h4>✍️ Language Generation</h4>
+                <p>Create text (responses)</p>
+            </div>
+        </div>
+
+        <h3>🔧 Four Technical Categories</h3>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Category</th>
+                    <th>Focus</th>
+                    <th>Key Tasks</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td><strong>Syntax</strong></td>
+                    <td>Grammar, structure</td>
+                    <td>Tokenization, POS tagging</td>
+                    <td>"Hello world" → ["Hello", "world"]</td>
+                </tr>
+                <tr>
+                    <td><strong>Semantics</strong></td>
+                    <td>Meaning, context</td>
+                    <td>Word disambiguation</td>
+                    <td>Bank: financial vs. riverbank</td>
+                </tr>
+                <tr>
+                    <td><strong>Discourse</strong></td>
+                    <td>Text longer than sentences</td>
+                    <td>Context maintenance</td>
+                    <td>"I went to bank. It was closed."</td>
+                </tr>
+                <tr>
+                    <td><strong>Speech</strong></td>
+                    <td>Audio processing</td>
+                    <td>Pronunciation, accents</td>
+                    <td>Voice assistants</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>👁️ COMPUTER VISION</h2>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Category</th>
+                    <th>Function</th>
+                    <th>Applications</th>
+                </tr>
+                <tr>
+                    <td><strong>Recognition Tasks</strong></td>
+                    <td>Detect objects, persons</td>
+                    <td>Autonomous vehicles, security</td>
+                </tr>
+                <tr>
+                    <td><strong>Motion Analysis</strong></td>
+                    <td>Track movement</td>
+                    <td>Sports analysis, surveillance</td>
+                </tr>
+                <tr>
+                    <td><strong>Image Restoration</strong></td>
+                    <td>Improve quality</td>
+                    <td>Medical imaging, satellites</td>
+                </tr>
+                <tr>
+                    <td><strong>Geometry Reconstruction</strong></td>
+                    <td>3D from 2D</td>
+                    <td>AR/VR, 3D modeling</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>🏢 BUSINESS APPLICATIONS</h2>
+        <div class="comparison">
+            <div class="vs-left">
+                <h4>🔧 Basic RPA</h4>
+                <ul class="compact-list">
+                    <li>Simple task automation</li>
+                    <li>Rule-based workflows</li>
+                    <li>No AI capabilities needed</li>
+                </ul>
+            </div>
+            <div class="vs-right">
+                <h4>🧠 AI-Enhanced RPA</h4>
+                <ul class="compact-list">
+                    <li>Intelligent automation</li>
+                    <li>NLP + Computer Vision</li>
+                    <li>Handles unstructured data</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- UNIT 3 -->
+        <div class="unit-divider"></div>
+        <h1>🎮 UNIT 3: REINFORCEMENT LEARNING</h1>
+
+        <h2>🎯 KEY LEARNING GOALS</h2>
+        <div class="key-points">
+            <ul class="compact-list">
+                <li><span class="emoji">🧠</span><strong>Understand</strong> RL concepts comparable to human learning
+                </li>
+                <li><span class="emoji">🔄</span><strong>Master</strong> exploration vs exploitation</li>
+                <li><span class="emoji">🏛️</span><strong>Learn</strong> Markov Decision Processes (MDPs)</li>
+                <li><span class="emoji">🎲</span><strong>Apply</strong> Q-Learning algorithms</li>
+            </ul>
+        </div>
+
+        <div class="analogy">
+            <p><span class="emoji">🌟</span><strong>Labyrinth Analogy:</strong> You're lost, need to find exit. Some
+                fields reward (exit), others punish (danger). Learn through trial and error!</p>
+        </div>
+
+        <h2>🔍 THREE TYPES OF MACHINE LEARNING</h2>
+        <div class="learning-types-grid">
+            <div class="learning-type supervised">
+                <h4>📚 Supervised</h4>
+                <p><strong>Data:</strong> Pre-labeled<br><strong>Goal:</strong> Learn from
+                    examples<br><strong>Challenge:</strong> Needs lots of labeled data</p>
+            </div>
+            <div class="learning-type unsupervised">
+                <h4>🔍 Unsupervised</h4>
+                <p><strong>Data:</strong> Unlabeled<br><strong>Goal:</strong> Discover
+                    patterns<br><strong>Challenge:</strong> No clear success metrics</p>
+            </div>
+            <div class="learning-type reinforcement">
+                <h4>🎮 Reinforcement</h4>
+                <p><strong>Data:</strong> Rewards from environment<br><strong>Goal:</strong> Maximize
+                    reward<br><strong>Challenge:</strong> Exploration vs exploitation</p>
+            </div>
+        </div>
+
+        <h2>🧩 CORE RL COMPONENTS</h2>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Component</th>
+                    <th>Definition</th>
+                    <th>Labyrinth Example</th>
+                </tr>
+                <tr>
+                    <td><strong>Agent</strong></td>
+                    <td>The learner/decision maker</td>
+                    <td>You navigating</td>
+                </tr>
+                <tr>
+                    <td><strong>Environment</strong></td>
+                    <td>What agent interacts with</td>
+                    <td>Labyrinth layout</td>
+                </tr>
+                <tr>
+                    <td><strong>State (S)</strong></td>
+                    <td>Current situation</td>
+                    <td>Your position</td>
+                </tr>
+                <tr>
+                    <td><strong>Action (A)</strong></td>
+                    <td>What agent can do</td>
+                    <td>Move up/down/left/right</td>
+                </tr>
+                <tr>
+                    <td><strong>Reward (R)</strong></td>
+                    <td>Feedback from environment</td>
+                    <td>+10 exit, -1 danger</td>
+                </tr>
+                <tr>
+                    <td><strong>Policy (π)</strong></td>
+                    <td>Strategy for actions</td>
+                    <td>Navigation strategy</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>⚖️ EXPLORATION vs EXPLOITATION</h2>
+        <div class="comparison">
+            <div class="vs-left">
+                <h4>🔍 EXPLORATION</h4>
+                <ul class="compact-list">
+                    <li>Try new, unknown actions</li>
+                    <li>Might get lower rewards short-term</li>
+                    <li>Could find better strategies</li>
+                </ul>
+            </div>
+            <div class="vs-right">
+                <h4>💰 EXPLOITATION</h4>
+                <ul class="compact-list">
+                    <li>Choose best known action</li>
+                    <li>Reliable rewards</li>
+                    <li>Might miss better alternatives</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>🏛️ MARKOV DECISION PROCESS</h2>
+        <div class="step-box">
+            <p><strong>Markov Property:</strong> Future depends only on present state, not entire history</p>
+            <p><strong>Mathematical:</strong> P(S<sub>t+1</sub> | S<sub>t</sub>) = P(S<sub>t+1</sub> | S<sub>t</sub>,
+                S<sub>t-1</sub>, ...)</p>
+        </div>
+
+        <table>
+            <tbody>
+                <tr>
+                    <th>Component</th>
+                    <th>Symbol</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><strong>States</strong></td>
+                    <td>S</td>
+                    <td>All possible situations</td>
+                </tr>
+                <tr>
+                    <td><strong>Actions</strong></td>
+                    <td>A</td>
+                    <td>All possible moves</td>
+                </tr>
+                <tr>
+                    <td><strong>Transition Probabilities</strong></td>
+                    <td>P</td>
+                    <td>Probability of reaching next state</td>
+                </tr>
+                <tr>
+                    <td><strong>Rewards</strong></td>
+                    <td>R</td>
+                    <td>Immediate feedback</td>
+                </tr>
+                <tr>
+                    <td><strong>Discount Factor</strong></td>
+                    <td>γ</td>
+                    <td>How much future rewards matter</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>🔄 MODEL-BASED vs MODEL-FREE</h2>
+        <div class="comparison">
+            <div class="vs-left">
+                <h4>🏗️ MODEL-BASED</h4>
+                <ul class="compact-list">
+                    <li>Learn environment model</li>
+                    <li>Can simulate future scenarios</li>
+                    <li>More data efficient</li>
+                </ul>
+            </div>
+            <div class="vs-right">
+                <h4>🎯 MODEL-FREE</h4>
+                <ul class="compact-list">
+                    <li>Learn directly from experience</li>
+                    <li>No explicit planning</li>
+                    <li>No model bias</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>🎲 Q-LEARNING</h2>
+        <div class="step-box">
+            <p><strong>Q-Function:</strong> Q(s,a) = Quality of taking action 'a' in state 's'</p>
+            <p><strong>Update Rule:</strong> Q(s,a) ← Q(s,a) + α[r + γ max Q(s',a') - Q(s,a)]</p>
+        </div>
+
+        <!-- UNIT 4 -->
+        <div class="unit-divider"></div>
+        <h1>👁️ UNIT 4: COMPUTER VISION FUNDAMENTALS</h1>
+
+        <h2>🎯 KEY LEARNING GOALS</h2>
+        <div class="key-points">
+            <ul class="compact-list">
+                <li><span class="emoji">📱</span><strong>Define</strong> computer vision principles</li>
+                <li><span class="emoji">🔲</span><strong>Explain</strong> image representation as pixels</li>
+                <li><span class="emoji">🔍</span><strong>Distinguish</strong> detection, description, matching</li>
+                <li><span class="emoji">📐</span><strong>Correct</strong> distortion with calibration</li>
+            </ul>
+        </div>
+
+        <h2>🖼️ COMPUTER VISION CATEGORIES</h2>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Category</th>
+                    <th>Purpose</th>
+                    <th>Examples</th>
+                </tr>
+                <tr>
+                    <td><strong>Recognition Tasks</strong></td>
+                    <td>Identify visual elements</td>
+                    <td>Face recognition, object detection</td>
+                </tr>
+                <tr>
+                    <td><strong>Motion Analysis</strong></td>
+                    <td>Track movement</td>
+                    <td>Sports analysis, surveillance</td>
+                </tr>
+                <tr>
+                    <td><strong>Image Restoration</strong></td>
+                    <td>Improve quality</td>
+                    <td>Photo enhancement, medical scans</td>
+                </tr>
+                <tr>
+                    <td><strong>Geometry Reconstruction</strong></td>
+                    <td>3D from 2D</td>
+                    <td>AR/VR, 3D mapping</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>⚠️ MAJOR CV CHALLENGES</h2>
+        <div class="challenges-grid">
+            <div class="challenge-item">
+                <h4>💡 Illumination</h4>
+                <p>Same object, different lighting</p>
+            </div>
+            <div class="challenge-item">
+                <h4>🔄 Similar Objects</h4>
+                <p>Ball vs. egg confusion</p>
+            </div>
+            <div class="challenge-item">
+                <h4>📏 Size/Distance</h4>
+                <p>Objects appear smaller when far</p>
+            </div>
+            <div class="challenge-item">
+                <h4>🔄 Rotation</h4>
+                <p>Same object, different angles</p>
+            </div>
+        </div>
+
+        <h2>🔲 IMAGE REPRESENTATION</h2>
+        <div class="comparison">
+            <div class="vs-left">
+                <h4>⚫ GRAYSCALE</h4>
+                <ul class="compact-list">
+                    <li>Single 2D matrix</li>
+                    <li>Values: 0 (black) to 255 (white)</li>
+                    <li>1 byte per pixel</li>
+                </ul>
+            </div>
+            <div class="vs-right">
+                <h4>🌈 RGB COLOR</h4>
+                <ul class="compact-list">
+                    <li>Three 2D matrices (R,G,B)</li>
+                    <li>0-255 for each channel</li>
+                    <li>3 bytes per pixel</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="matrix-demo">
+            <strong>Grayscale 3x3 Example:</strong><br>
+            [100, 150, 200]<br>
+            [50, 255, 180]<br>
+            [30, 80, 120]
+        </div>
+
+        <h2>🔧 IMAGE FILTERS &amp; CONVOLUTION</h2>
+        <div class="step-box">
+            <p><strong>2D Convolution:</strong> Slide small matrix (kernel) over image pixel by pixel, multiply and sum
+                values</p>
+        </div>
+
+        <table>
+            <tbody>
+                <tr>
+                    <th>Filter Type</th>
+                    <th>Purpose</th>
+                    <th>Effect</th>
+                </tr>
+                <tr>
+                    <td><strong>Smoothing</strong></td>
+                    <td>Reduce noise</td>
+                    <td>Blurred image</td>
+                </tr>
+                <tr>
+                    <td><strong>Edge Detection</strong></td>
+                    <td>Find boundaries</td>
+                    <td>Highlights edges</td>
+                </tr>
+                <tr>
+                    <td><strong>Sharpening</strong></td>
+                    <td>Enhance details</td>
+                    <td>More defined edges</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="matrix-demo">
+            <strong>Sobel X Edge Detection:</strong><br>
+            [-1, 0, +1]<br>
+            [-2, 0, +2]<br>
+            [-1, 0, +1]
+        </div>
+
+        <h2>🌟 FEATURE DETECTION</h2>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Step</th>
+                    <th>Purpose</th>
+                    <th>Output</th>
+                </tr>
+                <tr>
+                    <td><strong>Detection</strong></td>
+                    <td>Find interesting points</td>
+                    <td>Keypoint coordinates (x, y)</td>
+                </tr>
+                <tr>
+                    <td><strong>Description</strong></td>
+                    <td>Extract feature information</td>
+                    <td>Feature descriptor vector</td>
+                </tr>
+                <tr>
+                    <td><strong>Matching</strong></td>
+                    <td>Find correspondences</td>
+                    <td>Feature matches between images</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>🎯 Feature Types</h3>
+        <ul class="compact-list">
+            <li><strong>Corners:</strong> Points where edges meet (stable, distinctive)</li>
+            <li><strong>Edges:</strong> Boundaries between regions (define shapes)</li>
+            <li><strong>Blobs:</strong> Regions differing in brightness/color</li>
+        </ul>
+
+        <h2>📐 CAMERA CALIBRATION</h2>
+        <div class="comparison">
+            <div class="vs-left">
+                <h4>🌍 EXTRINSIC</h4>
+                <ul class="compact-list">
+                    <li>Camera position in world</li>
+                    <li>Rotation angles</li>
+                    <li>Where camera looks</li>
+                </ul>
+            </div>
+            <div class="vs-right">
+                <h4>🔍 INTRINSIC</h4>
+                <ul class="compact-list">
+                    <li>Focal length</li>
+                    <li>Optical center</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

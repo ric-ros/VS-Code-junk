@@ -1,0 +1,774 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 3: Reinforcement Learning - Study Guide</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            background: linear-gradient(90deg, #9b59b6, #8e44ad);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 30px 0 20px 0;
+            font-size: 1.4em;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h3 {
+            color: #2c3e50;
+            border-left: 4px solid #9b59b6;
+            padding-left: 15px;
+            margin: 25px 0 15px 0;
+            font-size: 1.2em;
+        }
+
+        .key-points {
+            background: #ecf0f1;
+            border-left: 5px solid #f39c12;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .exam-focus {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .exam-focus h4 {
+            color: #856404;
+            margin-top: 0;
+            font-size: 1.1em;
+        }
+
+        .critical-exam {
+            background: #f8d7da;
+            border: 2px solid #dc3545;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .critical-exam h4 {
+            color: #721c24;
+            margin-top: 0;
+            font-size: 1.1em;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        table th {
+            background: linear-gradient(90deg, #2c3e50, #34495e);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        table tr:hover {
+            background-color: #e8f4f8;
+        }
+
+        .rl-component {
+            background: linear-gradient(90deg, #16a085, #1abc9c);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        .step-box {
+            background: #e8f8f5;
+            border: 1px solid #1abc9c;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+
+        .labyrinth-analogy {
+            background: #f0f4ff;
+            border: 2px solid #6c5ce7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .analogy {
+            background: #fdf2e9;
+            border-left: 4px solid #f39c12;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-style: italic;
+        }
+
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .vs-left,
+        .vs-right {
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .vs-left {
+            background: #ffebee;
+            border: 2px solid #e91e63;
+        }
+
+        .vs-right {
+            background: #e8f5e8;
+            border: 2px solid #4caf50;
+        }
+
+        .highlight {
+            background: yellow;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .rl-cycle {
+            background: linear-gradient(135deg, #a8e6cf 0%, #88d8c0 100%);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px 0;
+            border: 2px solid #16a085;
+        }
+
+        .section-divider {
+            height: 3px;
+            background: linear-gradient(90deg, #9b59b6, #8e44ad);
+            margin: 40px 0;
+            border-radius: 2px;
+        }
+
+        .learning-types-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .learning-type {
+            background: #f8f9fa;
+            border: 2px solid #6c757d;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .learning-type.supervised {
+            border-color: #28a745;
+            background: #d4edda;
+        }
+
+        .learning-type.unsupervised {
+            border-color: #ffc107;
+            background: #fff3cd;
+        }
+
+        .learning-type.reinforcement {
+            border-color: #dc3545;
+            background: #f8d7da;
+        }
+
+        .algorithm-box {
+            background: #e3f2fd;
+            border: 1px solid #2196f3;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .algorithm-box h4 {
+            color: #1565c0;
+            margin-top: 0;
+            border-bottom: 2px solid #42a5f5;
+            padding-bottom: 10px;
+        }
+
+        ul,
+        ol {
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        .emoji {
+            font-size: 1.2em;
+            margin-right: 8px;
+        }
+
+        .markov-property {
+            background: #fff8e1;
+            border: 2px solid #ff9800;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .weather-example {
+            background: #e1f5fe;
+            border: 1px solid #03a9f4;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .container {
+                box-shadow: none;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🎮 UNIT 3: REINFORCEMENT LEARNING</h1>
+        <div class="subtitle">Learning Through Exploration &amp; Exploitation</div>
+
+        <h2>🎯 KEY LEARNING GOALS</h2>
+        <div class="key-points">
+            <ul>
+                <li><span class="emoji">🧠</span><strong>Understand</strong> reinforcement learning concepts comparable
+                    to human learning</li>
+                <li><span class="emoji">🔄</span><strong>Master</strong> exploration vs exploitation strategies</li>
+                <li><span class="emoji">🏛️</span><strong>Learn</strong> Markov Decision Processes (MDPs) and value
+                    functions</li>
+                <li><span class="emoji">⚡</span><strong>Compare</strong> model-based vs model-free approaches</li>
+                <li><span class="emoji">🎲</span><strong>Apply</strong> Q-Learning and Temporal Difference methods</li>
+            </ul>
+        </div>
+
+        <div class="labyrinth-analogy">
+            <h3>🌟 THE LABYRINTH ANALOGY</h3>
+            <p><strong>Imagine you're lost in a labyrinth and need to find your way out!</strong></p>
+            <p>🚶&zwj;♂️ You can move: ⬆️ Up, ⬇️ Down, ⬅️ Left, ➡️ Right</p>
+            <p>⚠️ Some fields are dangerous (negative reward)</p>
+            <p>🚪 Some fields lead to the exit (positive reward)</p>
+            <p>💡 You learn through trial and error - just like reinforcement learning!</p>
+        </div>
+
+        <h2>🔍 WHAT IS REINFORCEMENT LEARNING?</h2>
+
+        <div class="critical-exam">
+            <h4>🚨 EXAM CRITICAL: Three Types of Machine Learning</h4>
+            <p>Know the differences between supervised, unsupervised, and reinforcement learning!</p>
+        </div>
+
+        <div class="learning-types-grid">
+            <div class="learning-type supervised">
+                <h4>📚 Supervised Learning</h4>
+                <p><strong>Data:</strong> Pre-labeled training data</p>
+                <p><strong>Goal:</strong> Learn from examples</p>
+                <p><strong>Examples:</strong> Credit risk, spam detection</p>
+                <p><strong>Challenge:</strong> Requires lots of labeled data</p>
+            </div>
+            <div class="learning-type unsupervised">
+                <h4>🔍 Unsupervised Learning</h4>
+                <p><strong>Data:</strong> Unlabeled data</p>
+                <p><strong>Goal:</strong> Discover patterns</p>
+                <p><strong>Examples:</strong> Clustering, anomaly detection</p>
+                <p><strong>Challenge:</strong> No clear success metrics</p>
+            </div>
+            <div class="learning-type reinforcement">
+                <h4>🎮 Reinforcement Learning</h4>
+                <p><strong>Data:</strong> Rewards from environment</p>
+                <p><strong>Goal:</strong> Maximize cumulative reward</p>
+                <p><strong>Examples:</strong> Game playing, robotics</p>
+                <p><strong>Challenge:</strong> Exploration vs exploitation</p>
+            </div>
+        </div>
+
+        <h3>🌟 What Makes RL Special?</h3>
+        <div class="analogy">
+            <p><span class="emoji">👶</span><strong>Human Learning Parallel:</strong> Just like how babies learn to walk
+                through trial and error, RL agents learn optimal behavior through interaction with their environment!
+            </p>
+        </div>
+
+        <div class="rl-cycle">
+            <h4>🔄 THE REINFORCEMENT LEARNING CYCLE</h4>
+            <p><strong>Agent → Action → Environment → State + Reward → Agent</strong></p>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <h2>🧩 CORE RL COMPONENTS</h2>
+
+        <table>
+            <tbody>
+                <tr>
+                    <th>Component</th>
+                    <th>Definition</th>
+                    <th>Labyrinth Example</th>
+                    <th>Real-World Example</th>
+                </tr>
+                <tr>
+                    <td><strong>Agent</strong></td>
+                    <td>The learner/decision maker</td>
+                    <td>You navigating the labyrinth</td>
+                    <td>AI playing chess, robot walking</td>
+                </tr>
+                <tr>
+                    <td><strong>Environment</strong></td>
+                    <td>Everything the agent interacts with</td>
+                    <td>The labyrinth layout and rules</td>
+                    <td>Chess board, physical world</td>
+                </tr>
+                <tr>
+                    <td><strong>State (S)</strong></td>
+                    <td>Current situation of the agent</td>
+                    <td>Your current position in labyrinth</td>
+                    <td>Chess board position, robot location</td>
+                </tr>
+                <tr>
+                    <td><strong>Action (A)</strong></td>
+                    <td>What the agent can do</td>
+                    <td>Move up/down/left/right</td>
+                    <td>Chess moves, robot motor commands</td>
+                </tr>
+                <tr>
+                    <td><strong>Reward (R)</strong></td>
+                    <td>Feedback from environment</td>
+                    <td>+10 for exit, -1 for dangerous field</td>
+                    <td>Win/lose game, reach destination</td>
+                </tr>
+                <tr>
+                    <td><strong>Policy (π)</strong></td>
+                    <td>Strategy for choosing actions</td>
+                    <td>Your navigation strategy</td>
+                    <td>Chess playing strategy</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="section-divider"></div>
+
+        <h2>⚖️ EXPLORATION vs EXPLOITATION</h2>
+
+        <div class="exam-focus">
+            <h4>💡 EXAM TIP: This is a Fundamental RL Concept!</h4>
+            <p>Understanding this trade-off is crucial for reinforcement learning success.</p>
+        </div>
+
+        <div class="comparison">
+            <div class="vs-left">
+                <h4>🔍 EXPLORATION</h4>
+                <ul>
+                    <li><strong>Goal:</strong> Discover new information</li>
+                    <li><strong>Strategy:</strong> Try new, unknown actions</li>
+                    <li><strong>Risk:</strong> Might get lower rewards short-term</li>
+                    <li><strong>Benefit:</strong> Could find better strategies</li>
+                    <li><strong>Labyrinth:</strong> Try a new path you've never taken</li>
+                </ul>
+            </div>
+            <div class="vs-right">
+                <h4>💰 EXPLOITATION</h4>
+                <ul>
+                    <li><strong>Goal:</strong> Use known information</li>
+                    <li><strong>Strategy:</strong> Choose best known action</li>
+                    <li><strong>Risk:</strong> Might miss better alternatives</li>
+                    <li><strong>Benefit:</strong> Reliable rewards</li>
+                    <li><strong>Labyrinth:</strong> Take the path you know works</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="analogy">
+            <p><span class="emoji">🍕</span><strong>Restaurant Analogy:</strong> Do you try a new restaurant
+                (exploration) or go to your favorite one (exploitation)? RL agents face this choice constantly!</p>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <h2>🏛️ MARKOV DECISION PROCESS (MDP)</h2>
+
+        <div class="critical-exam">
+            <h4>🔥 HIGH-PROBABILITY EXAM TOPIC</h4>
+            <p>MDPs are the mathematical foundation of reinforcement learning. Know the Markov property!</p>
+        </div>
+
+        <div class="markov-property">
+            <h4>🎯 The Markov Property</h4>
+            <p><strong>Key Principle:</strong> The future depends only on the present state, not the entire history</p>
+            <p><strong>Mathematical:</strong> P(S<sub>t+1</sub> | S<sub>t</sub>, S<sub>t-1</sub>, ..., S<sub>0</sub>) =
+                P(S<sub>t+1</sub> | S<sub>t</sub>)</p>
+            <p><strong>Meaning:</strong> All relevant information is contained in the current state</p>
+        </div>
+
+        <h3>📊 MDP Components</h3>
+
+        <table>
+            <tbody>
+                <tr>
+                    <th>Component</th>
+                    <th>Symbol</th>
+                    <th>Description</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td><strong>States</strong></td>
+                    <td>S</td>
+                    <td>All possible situations</td>
+                    <td>All positions in labyrinth</td>
+                </tr>
+                <tr>
+                    <td><strong>Actions</strong></td>
+                    <td>A</td>
+                    <td>All possible moves</td>
+                    <td>Up, Down, Left, Right</td>
+                </tr>
+                <tr>
+                    <td><strong>Transition Probabilities</strong></td>
+                    <td>P</td>
+                    <td>Probability of reaching next state</td>
+                    <td>90% chance move succeeds, 10% slip</td>
+                </tr>
+                <tr>
+                    <td><strong>Rewards</strong></td>
+                    <td>R</td>
+                    <td>Immediate feedback</td>
+                    <td>+10 for exit, -1 for danger</td>
+                </tr>
+                <tr>
+                    <td><strong>Discount Factor</strong></td>
+                    <td>γ (gamma)</td>
+                    <td>How much future rewards matter</td>
+                    <td>0.9 = future rewards worth 90%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>💎 Value Function</h3>
+        <div class="step-box">
+            <p><strong>Purpose:</strong> Estimates how good it is to be in a particular state</p>
+            <p><strong>Formula:</strong> V(s) = Expected total reward starting from state s</p>
+            <p><strong>Labyrinth Example:</strong> State near exit has high value, dangerous states have low value</p>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <h2>🔄 MODEL-BASED vs MODEL-FREE</h2>
+
+        <div class="comparison">
+            <div class="vs-left">
+                <h4>🏗️ MODEL-BASED</h4>
+                <ul>
+                    <li><strong>Strategy:</strong> Learn a model of the environment</li>
+                    <li><strong>Knowledge:</strong> Understands transition probabilities</li>
+                    <li><strong>Planning:</strong> Can simulate future scenarios</li>
+                    <li><strong>Advantage:</strong> More data efficient</li>
+                    <li><strong>Disadvantage:</strong> Model might be wrong</li>
+                    <li><strong>Example:</strong> Learn labyrinth layout first</li>
+                </ul>
+            </div>
+            <div class="vs-right">
+                <h4>🎯 MODEL-FREE</h4>
+                <ul>
+                    <li><strong>Strategy:</strong> Learn directly from experience</li>
+                    <li><strong>Knowledge:</strong> Only knows action values</li>
+                    <li><strong>Planning:</strong> No explicit planning</li>
+                    <li><strong>Advantage:</strong> No model bias</li>
+                    <li><strong>Disadvantage:</strong> Needs more experience</li>
+                    <li><strong>Example:</strong> Just try actions and learn</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <h2>⚡ TEMPORAL DIFFERENCE (TD) LEARNING</h2>
+
+        <div class="algorithm-box">
+            <h4>🌟 What Makes TD Learning Special?</h4>
+            <ul>
+                <li><span class="emoji">🔄</span><strong>Model-free:</strong> No environment model required</li>
+                <li><span class="emoji">📊</span><strong>Online learning:</strong> Updates immediately after each step
+                </li>
+                <li><span class="emoji">🔗</span><strong>Bootstrapping:</strong> Uses current estimates to improve
+                    estimates</li>
+                <li><span class="emoji">⚡</span><strong>Efficient:</strong> Learns from partial experiences</li>
+            </ul>
+        </div>
+
+        <h3>🌤️ Weather Prediction Example</h3>
+        <div class="weather-example">
+            <p><strong>Scenario:</strong> Predicting Monday's weather</p>
+            <p><strong>Traditional approach:</strong> Wait until Monday to update prediction</p>
+            <p><strong>TD approach:</strong> Update prediction based on Sunday's weather (correlated predictions)</p>
+            <p><strong>Key insight:</strong> Subsequent predictions are often correlated!</p>
+        </div>
+
+        <h3>🔄 TD Learning Process</h3>
+        <div class="step-box">
+            <ol>
+                <li><strong>Make prediction</strong> based on current state</li>
+                <li><strong>Take action</strong> and observe next state + reward</li>
+                <li><strong>Update prediction</strong> based on new information</li>
+                <li><strong>Repeat</strong> for continuous learning</li>
+            </ol>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <h2>🎲 Q-LEARNING</h2>
+
+        <div class="critical-exam">
+            <h4>🔥 EXAM FAVORITE: Q-Learning Algorithm</h4>
+            <p>Q-Learning is the most famous model-free RL algorithm. Understand its core concepts!</p>
+        </div>
+
+        <h3>🎯 What is Q-Learning?</h3>
+        <div class="algorithm-box">
+            <h4>Q-Learning Fundamentals</h4>
+            <ul>
+                <li><span class="emoji">📈</span><strong>Q-Function:</strong> Q(s,a) = Quality of taking action 'a' in
+                    state 's'</li>
+                <li><span class="emoji">🎯</span><strong>Goal:</strong> Learn optimal Q-values for all state-action
+                    pairs</li>
+                <li><span class="emoji">⚡</span><strong>Model-free:</strong> No need to understand environment dynamics
+                </li>
+                <li><span class="emoji">🔄</span><strong>Off-policy:</strong> Can learn optimal policy while following
+                    different policy</li>
+            </ul>
+        </div>
+
+        <h3>📊 Q-Learning vs Value Function</h3>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Concept</th>
+                    <th>Focus</th>
+                    <th>Question Answered</th>
+                    <th>Usage</th>
+                </tr>
+                <tr>
+                    <td><strong>Value Function V(s)</strong></td>
+                    <td>State value</td>
+                    <td>"How good is this state?"</td>
+                    <td>Model-based planning</td>
+                </tr>
+                <tr>
+                    <td><strong>Q-Function Q(s,a)</strong></td>
+                    <td>Action value</td>
+                    <td>"How good is this action in this state?"</td>
+                    <td>Model-free decision making</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>🔄 Q-Learning Update Rule</h3>
+        <div class="step-box">
+            <p><strong>Formula:</strong> Q(s,a) ← Q(s,a) + α[r + γ max Q(s',a') - Q(s,a)]</p>
+            <p><strong>Where:</strong></p>
+            <ul>
+                <li><strong>α (alpha):</strong> Learning rate (how fast to update)</li>
+                <li><strong>γ (gamma):</strong> Discount factor (importance of future)</li>
+                <li><strong>r:</strong> Immediate reward</li>
+                <li><strong>max Q(s',a'):</strong> Best possible future Q-value</li>
+            </ul>
+        </div>
+
+        <div class="analogy">
+            <p><span class="emoji">🎯</span><strong>Simple Analogy:</strong> Q-Learning is like rating every (state,
+                action) combination. The agent gradually learns which actions are best in each situation!</p>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <h2>🎮 REAL-WORLD APPLICATIONS</h2>
+
+        <table>
+            <tbody>
+                <tr>
+                    <th>Application</th>
+                    <th>Agent</th>
+                    <th>Environment</th>
+                    <th>Actions</th>
+                    <th>Rewards</th>
+                </tr>
+                <tr>
+                    <td><strong>Game Playing</strong></td>
+                    <td>AI player</td>
+                    <td>Game rules &amp; opponent</td>
+                    <td>Legal moves</td>
+                    <td>Win/lose/draw</td>
+                </tr>
+                <tr>
+                    <td><strong>Autonomous Driving</strong></td>
+                    <td>Self-driving car</td>
+                    <td>Roads, traffic, weather</td>
+                    <td>Steering, braking, acceleration</td>
+                    <td>Safe arrival, avoid accidents</td>
+                </tr>
+                <tr>
+                    <td><strong>Robotics</strong></td>
+                    <td>Robot</td>
+                    <td>Physical world</td>
+                    <td>Motor commands</td>
+                    <td>Task completion</td>
+                </tr>
+                <tr>
+                    <td><strong>Trading</strong></td>
+                    <td>Trading algorithm</td>
+                    <td>Financial markets</td>
+                    <td>Buy/sell/hold</td>
+                    <td>Profit/loss</td>
+                </tr>
+                <tr>
+                    <td><strong>Recommendation Systems</strong></td>
+                    <td>Recommender</td>
+                    <td>User preferences</td>
+                    <td>Suggest items</td>
+                    <td>User engagement</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="section-divider"></div>
+
+        <h2>🔗 CONNECTIONS TO PREVIOUS UNITS</h2>
+
+        <div class="key-points">
+            <h4>🌉 Building Bridges: How RL Connects to Units 1 &amp; 2</h4>
+            <ul>
+                <li><span class="emoji">🔗</span><strong>Unit 1 - Neural Networks:</strong> Deep RL uses neural networks
+                    to approximate Q-functions</li>
+                <li><span class="emoji">🔗</span><strong>Unit 1 - Learning from Data:</strong> RL learns from reward
+                    signals instead of labeled examples</li>
+                <li><span class="emoji">🔗</span><strong>Unit 2 - Game Applications:</strong> Deep Blue used game-tree
+                    search, modern RL uses learning</li>
+                <li><span class="emoji">🔗</span><strong>Unit 2 - Autonomous Systems:</strong> Self-driving cars
+                    increasingly use RL for decision making</li>
+                <li><span class="emoji">🔗</span><strong>Intelligent Agents:</strong> RL embodies the intelligent agent
+                    paradigm from Unit 1</li>
+            </ul>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <h2>🎯 EXAM STRATEGY FOR UNIT 3</h2>
+
+        <div class="critical-exam">
+            <h4>🔥 HIGHEST-PROBABILITY EXAM TOPICS</h4>
+            <ul>
+                <li><span class="emoji">📚</span><strong>Learning Types:</strong> Supervised vs Unsupervised vs
+                    Reinforcement</li>
+                <li><span class="emoji">🧩</span><strong>RL Components:</strong> Agent, Environment, State, Action,
+                    Reward, Policy</li>
+                <li><span class="emoji">⚖️</span><strong>Exploration vs Exploitation:</strong> Trade-offs and examples
+                </li>
+                <li><span class="emoji">🏛️</span><strong>Markov Property:</strong> Definition and importance in MDPs
+                </li>
+                <li><span class="emoji">🔄</span><strong>Model-based vs Model-free:</strong> Differences and trade-offs
+                </li>
+                <li><span class="emoji">⚡</span><strong>TD Learning:</strong> Why it works and weather prediction
+                    example</li>
+                <li><span class="emoji">🎲</span><strong>Q-Learning:</strong> Basic concept and what Q(s,a) represents
+                </li>
+            </ul>
+        </div>
+
+        <h3>📝 Key Formulas to Remember</h3>
+        <div class="algorithm-box">
+            <ul>
+                <li><strong>Markov Property:</strong> P(S<sub>t+1</sub> | S<sub>t</sub>) = P(S<sub>t+1</sub> |
+                    S<sub>t</sub>, S<sub>t-1</sub>, ...)</li>
+                <li><strong>Value Function:</strong> V(s) = Expected total reward from state s</li>
+                <li><strong>Q-Function:</strong> Q(s,a) = Expected total reward from state s taking action a</li>
+                <li><strong>Q-Learning Update:</strong> Q(s,a) ← Q(s,a) + α[r + γ max Q(s',a') - Q(s,a)]</li>
+            </ul>
+        </div>
+
+        <h3>💡 Study Tips for RL Success</h3>
+        <div class="exam-focus">
+            <h4>🎯 How to Master Reinforcement Learning</h4>
+            <ul>
+                <li><strong>Start with analogies:</strong> Use labyrinth, restaurant, game examples</li>
+                <li><strong>Understand trade-offs:</strong> Exploration vs exploitation is everywhere</li>
+                <li><strong>Connect to experience:</strong> Think about how you learn new skills</li>
+                <li><strong>Visualize the cycle:</strong> Agent → Action → Environment → Reward → Agent</li>
+                <li><strong>Practice with examples:</strong> Apply concepts to games, robotics, trading</li>
+                <li><strong>Link to other units:</strong> Show how RL extends supervised/unsupervised learning</li>
+            </ul>
+        </div>
+
+        <div class="rl-cycle">
+            <h4>🌟 REMEMBER: RL is about learning through interaction!</h4>
+            <p>Just like humans learn to ride a bike or play a sport - through practice, feedback, and gradual
+                improvement!</p>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
